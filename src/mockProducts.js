@@ -21,3 +21,12 @@ export const getProducts = () => {
     })
     return promise
 }
+
+export const getProductById = (id) => {
+    let promise = new Promise((resolve) => {
+        setTimeout(() => {            
+            resolve(products.find(prod => prod.id === id))
+        }, 250)
+    })
+    return promise
+}
