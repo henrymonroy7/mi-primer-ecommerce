@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
 
 
 const Item = (product) => {
@@ -17,9 +18,12 @@ const Item = (product) => {
                     <Card.Text >
                         Stock disponible: {product.stock}
                     </Card.Text>
+                    <Card.Text >
+                        Category: {product.category}
+                    </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary">Ver detalle</Button>
+                    <Link to={`item/${product.id}`}>Ver detalle</Link>
                 </Card.Footer>
             </Card>
         </Container>
