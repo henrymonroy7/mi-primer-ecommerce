@@ -5,13 +5,13 @@ import NavBar from './Componentes/NavBar/NavBar';
 import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer';
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting="Bienvenidos" />}/>
+          <Route path='/' element={<ItemListContainer greeting="Bienvenido a mi E-commerce"/>}/>
           <Route path='/category/:categoryId' element={<ItemListContainer greeting="Bienvenidos" />}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
           <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>}/>
