@@ -1,11 +1,13 @@
-import ListGroup from 'react-bootstrap/ListGroup';
-import Item from "../Item/Item"
+import Item from "../Item/Item";
 
-const ItemList = ({ products }) => {
+const ItemList = ({products}) => {
     return (
-        <ListGroup horizontal>
+        <div style={{ display: 'flex' }}>
             {products.map(prod => <Item key={prod.id} {...prod} />)}
-        </ListGroup>
+        </div>
+
+
+
     )
 }
 

@@ -4,9 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CardWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getCategories } from '../../mocks/mockCategories';
 
 
 const NavBar = () => {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    getCategories().then(response => {
+      setCategories(response)
+      console.log("categorias", categories)
+    }).catch(error => {
+      console.log("Error", error)
+    })
+  }, [])
+
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -15,23 +29,17 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <NavLink to={`/category/pipas`}>Pipas</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-              <NavLink to={`/category/bong`}>Bongs</NavLink>
-              </NavDropdown.Item>              
-              <NavDropdown.Divider />
-              <NavDropdown.Item disabled>
-                Otras categorias
-              </NavDropdown.Item>
+              {categories.map(cat =>
+                <NavDropdown.Item>
+                  <NavLink to={`/category${cat.url}`}>{cat.name}</NavLink>
+                </NavDropdown.Item>)}
             </NavDropdown>
           </Nav>
           <CardWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  )
 }
 
 export default NavBar;
