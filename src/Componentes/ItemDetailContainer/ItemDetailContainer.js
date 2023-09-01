@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../mocks/mockProducts";
 import { useParams } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
 
 
 const ItemDetailContainer = () => {
@@ -11,16 +12,20 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getProductById(itemId)
-            .then(response => {                                
-                setProduct(response)
+            .then(response => {                                                
+                setProduct(response)                                
             })
-            .catch(error => {
+            .catch(error => {                
                 console.log("Ha ocurrido un error", error)
             })
     }, [itemId])
 
     return (
-        <ItemDetail {...product}></ItemDetail>        
+        <Container className="text-left">
+            <h3>Detalles del Producto</h3>            
+            <ItemDetail {...product}></ItemDetail>        
+        </Container>
+        
     )
 
 }

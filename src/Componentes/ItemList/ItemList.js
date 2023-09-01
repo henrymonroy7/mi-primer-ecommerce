@@ -1,10 +1,7 @@
 import Item from "../Item/Item";
-import { Container, Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 const ItemList = ({ products }) => {
-    if (products.length === 0) {
-        return <h4>No hay elementos disponibles.</h4>;
-    }
 
     return (
         <div className="card-grid">

@@ -3,7 +3,6 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect } from "react"
 import { getProducts, getProductsByCategoryId } from "../../mocks/mockProducts"
 import { useParams } from "react-router-dom"
-import { Container, Row } from "react-bootstrap"
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])

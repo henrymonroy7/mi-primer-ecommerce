@@ -22,13 +22,13 @@ const ItemCount = ({initial, stock, onAdd}) => {
             <div>
                 <ButtonGroup style={{marginBottom:10}}>
                     <Button style={{marginRight:10}} variant='secondary' onClick={decrement}> - </Button>
-                    <h4 style={{padding:3}}>{quantity}</h4>
+                    <span><h4 style={{padding:3}}>{quantity}</h4></span>
                     <Button style={{marginLeft:10}} variant='secondary' onClick={increment}> + </Button>
                 </ButtonGroup>
             </div>
             <div>
                 <Button className="Button" onClick={() => onAdd(quantity)} >
-                    Agregar al carrito
+                    Add to Cart
                 </Button>
             </div>
         </>
