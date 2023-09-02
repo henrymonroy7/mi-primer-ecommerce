@@ -1,10 +1,13 @@
 import { createContext, useState } from "react"
+// import { FaRegMoon, FaSun  } from "react-icons/fa";
 
 const ThemeContext = createContext()
 
 export const ThemeProvider = ({children}) => {
     const [theme, setTheme] = useState('light')
-    const toggleTheme = () =>  {
+    // const [icon, setIcon] = useState('FaRegMoon')
+
+    const toggleTheme = () =>  {        
         setTheme(prev => (prev === 'light' ? 'dark': 'light'))
     }
 

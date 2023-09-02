@@ -8,23 +8,20 @@ import { ThemeProvider } from './Contexts/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-
-      <BrowserRouter>
-        <ThemeProvider>
+    <ThemeProvider>
+      <div className="App">
+        <BrowserRouter>
           <NavBar />
-        </ThemeProvider>
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting="Bienvenido a mi E-commerce" />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Bienvenidos" />} />
+            <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+            <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider >
 
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting="Bienvenido a mi E-commerce" />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting="Bienvenidos" />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
-        </Routes>
-      </BrowserRouter>
-
-
-    </div>
   );
 }
 

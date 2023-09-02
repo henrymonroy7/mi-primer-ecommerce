@@ -27,7 +27,7 @@ const NavBar = () => {
 
 
   return (
-    <Navbar bg={theme} variant={theme} expand="lg" className="bg-body-tertiary">
+    <Navbar bg={theme} variant={theme} expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           E-Commerce
@@ -47,15 +47,15 @@ const NavBar = () => {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-          </Nav>
-          <CardWidget />
-          <Button variant="secondary" onClick={toggleTheme}>
-            <FaRegMoon/>
-            <FaSun/>
+          </Nav>          
+          <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
+            {theme === 'dark' ? <FaRegMoon/> : <FaSun/>}
           </Button>
+          <CardWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
 
   )
 }

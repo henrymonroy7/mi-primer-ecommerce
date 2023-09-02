@@ -12,3 +12,8 @@
 .text-left {
   text-align: left; 
 }
+
+.button-navbar {
+  margin-right: 10px;  
+  font-size: 20px;
+}

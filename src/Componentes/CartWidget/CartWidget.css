@@ -1,0 +1,25 @@
+/* CardWidget.css */
+.custom-cart-widget {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px; /* Ajusta el espaciado del botón */
+  }
+  
+  .custom-icon {
+    font-size: 24px; /* Ajusta el tamaño del ícono */
+    margin-right: 5px; /* Agrega un pequeño margen a la derecha del ícono */
+  }
+  
+  .custom-badge {
+    font-size: 14px; /* Ajusta el tamaño del badge */
+    padding: 3px 6px; /* Ajusta el espaciado dentro del badge */
+  }
+
+  .bg-dark {    
+    color: white !important;
+  }
+
+  .btn-close-dark{    
+    color: white !important;
+  }
+  
