@@ -18,8 +18,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getCategories().then(response => {
-      setCategories(response)
-      console.log("categorias", categories)
+      setCategories(response)      
     }).catch(error => {
       console.log("Error", error)
     })
@@ -27,7 +26,7 @@ const NavBar = () => {
 
 
   return (
-    <Navbar bg={theme} variant={theme} expand="lg">
+    <Navbar bg={theme} variant={theme} expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           E-Commerce
