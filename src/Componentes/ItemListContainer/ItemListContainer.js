@@ -3,8 +3,11 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect } from "react"
 import { getProducts, getProductsByCategoryId } from "../../mocks/mockProducts"
 import { useParams } from "react-router-dom"
+import { useContext } from "react"
+import ThemeContext from "../../Contexts/ThemeContext"
 
 const ItemListContainer = ({ greeting }) => {
+    const { theme } = useContext(ThemeContext)
     const [products, setProducts] = useState([])
     const { categoryId } = useParams()
 
@@ -22,7 +25,7 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     return (
-        <div>
+        <div className={`bg-${theme}`} style={{paddingBottom:'20px'}}>
             <h1>{greeting}</h1>
             <ItemList products={products} />            
         </div>
