@@ -7,6 +7,7 @@ import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailCon
 import { ThemeProvider } from './Contexts/ThemeContext';
 import Home from './Pages/Home/Home';
 import Footer from './Componentes/Footer/Footer';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -15,12 +16,14 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <div className="myApp">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Nombre categoría" />} />
-            <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-            <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
-          </Routes>
+          <Container>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/category/:categoryId' element={<ItemListContainer greeting="Nombre categoría" />} />
+              <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+              <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
+            </Routes>
+          </Container>
         </div>
         <Footer />
       </BrowserRouter>

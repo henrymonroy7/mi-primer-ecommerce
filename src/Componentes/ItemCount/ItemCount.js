@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { useState } from 'react';
+import { FaPlus, FaMinus } from 'react-icons/fa'
 
 const ItemCount = ({initial, stock, onAdd}) => {
     const [quantity, setQuantity] = useState(initial) 
@@ -21,9 +22,9 @@ const ItemCount = ({initial, stock, onAdd}) => {
         <>
             <div>
                 <ButtonGroup style={{marginBottom:10}}>
-                    <Button style={{marginRight:10}} variant='secondary' onClick={decrement}> - </Button>
+                    <Button style={{marginRight:10}} variant='secondary' onClick={decrement}> <FaMinus/> </Button>
                     <span><h4 style={{padding:3}}>{quantity}</h4></span>
-                    <Button style={{marginLeft:10}} variant='secondary' onClick={increment}> + </Button>
+                    <Button style={{marginLeft:10}} variant='secondary' onClick={increment}> <FaPlus/></Button>
                 </ButtonGroup>
             </div>
             <div>
