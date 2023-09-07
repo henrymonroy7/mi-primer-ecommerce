@@ -3,16 +3,17 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect } from "react"
 import { getProducts, getProductsByCategoryId } from "../../mocks/mockProducts"
 import { useParams } from "react-router-dom"
-import { useContext } from "react"
-import ThemeContext from "../../Contexts/ThemeContext"
+// import { useContext } from "react"
+// import ThemeContext from "../../Contexts/ThemeContext"
 
 const ItemListContainer = ({ greeting }) => {
-    const { theme } = useContext(ThemeContext)
+    // const { theme } = useContext(ThemeContext)
     const [products, setProducts] = useState([])
-    const { categoryId } = useParams()
-
-    useEffect(() => {
-        const myFunction = categoryId ? getProductsByCategoryId : getProducts
+    const [loading, setLoading] = useState(true)
+    const { categoryId } = useParams()    
+        
+    useEffect(() => {        
+        const myFunction = categoryId ? getProductsByCategoryId : getProducts        
 
         myFunction(categoryId)
             .then(response => {
@@ -20,14 +21,17 @@ const ItemListContainer = ({ greeting }) => {
             })
             .catch(error => {
                 console.log("Ha ocurrido un error", error)
+            }).finally(() => {
+                setLoading(false)
             })
 
     }, [categoryId])
 
     return (
-        <div className={`bg-${theme}`} style={{paddingBottom:'20px'}}>
+        loading ? <p>Aguarde...</p> :
+        <div /*className={`bg-${theme}`}*/ style={{ paddingBottom: '20px' }}>
             <h1>{greeting}</h1>
-            <ItemList products={products} />            
+            <ItemList products={products} />
         </div>
     )
 }

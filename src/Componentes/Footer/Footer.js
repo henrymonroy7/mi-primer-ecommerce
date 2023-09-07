@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button, Container } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import ThemeContext from '../../Contexts/ThemeContext';
 import { useContext } from 'react';
@@ -7,8 +7,9 @@ import { useContext } from 'react';
 const Footer = () => {
     const { theme } = useContext(ThemeContext)
   return (
-    <footer className={`bg-${theme}`}>
-      <Container>
+    <footer>
+      <div className={`bg-${theme}`}>
+        <Container style={{padding:'10px'}}>
         <Row>
           <Col md={6}>
             <h4>Suscríbete a nuestro boletín</h4>
@@ -28,19 +29,20 @@ const Footer = () => {
           <Col md={3}>
             <h4>Síguenos en redes sociales</h4>
             <div className="d-flex justify-content-between">
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-white">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className={theme === 'dark' ? 'text-light' : 'text-dark'}>
                 <FaFacebook size={30} />
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-white">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className={theme === 'dark' ? 'text-light' : 'text-dark'}>
                 <FaTwitter size={30} />
               </a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-white">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className={theme === 'dark' ? 'text-light' : 'text-dark'}>
                 <FaInstagram size={30} />
               </a>
             </div>
           </Col>
         </Row>
-      </Container>
+        </Container>
+      </div>
     </footer>
   );
 };

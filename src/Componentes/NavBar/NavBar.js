@@ -48,7 +48,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>          
           <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
-            {theme === 'dark' ? <FaRegMoon/> : <FaSun/>}
+            {theme === 'dark' ? <FaSun/> : <FaRegMoon/>}
           </Button>
           <CardWidget />
         </Navbar.Collapse>

@@ -5,25 +5,26 @@ import NavBar from './Componentes/NavBar/NavBar';
 import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer';
 import { ThemeProvider } from './Contexts/ThemeContext';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Footer from './Componentes/Footer/Footer';
 
 function App() {
+
   return (
     <ThemeProvider>
-      <div className="App">
-        <BrowserRouter>
-          <NavBar />
-          
+      <BrowserRouter>
+        <NavBar />
+        <div className="myApp">
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Bienvenidos" />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Nombre categoría" />} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />
             <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
           </Routes>
-          <Footer/>
-        </BrowserRouter>
-      </div>
+        </div>
+        <Footer />
+      </BrowserRouter>
+
     </ThemeProvider >
 
   );

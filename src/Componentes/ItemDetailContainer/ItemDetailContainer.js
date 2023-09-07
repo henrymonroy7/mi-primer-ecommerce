@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../mocks/mockProducts";
 import { useParams } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
 
 
 const ItemDetailContainer = () => {
@@ -21,10 +20,10 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
-        <Container className="text-left">
+        <div className="text-left">
             <h3>Detalles del Producto</h3>            
             <ItemDetail {...product}></ItemDetail>        
-        </Container>
+        </div>
         
     )
 
