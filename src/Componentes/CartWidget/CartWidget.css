@@ -22,4 +22,8 @@
   .btn-close-dark{    
     color: white !important;
   }
+
+  .square-button {
+    border-radius: 0 !important; 
+  }
   

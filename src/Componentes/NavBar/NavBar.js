@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../../mocks/mockCategories';
 import ThemeContext from '../../Contexts/ThemeContext';
 import { Button } from 'react-bootstrap';
-import { FaRegMoon, FaSun  } from "react-icons/fa";
+import { FaRegMoon, FaSun } from "react-icons/fa";
 
 
 const NavBar = () => {
@@ -18,7 +18,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getCategories().then(response => {
-      setCategories(response)      
+      setCategories(response)
     }).catch(error => {
       console.log("Error", error)
     })
@@ -39,19 +39,19 @@ const NavBar = () => {
             </NavLink>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               {categories?.map((cat, index) => (
-                <NavDropdown.Item key={index}>
+                <NavDropdown.Item key={index} >
                   <NavLink to={`/category${cat.url}`} className="dropdown-item">
                     {cat.name}
                   </NavLink>
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-          </Nav>          
-          <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
-            {theme === 'dark' ? <FaSun/> : <FaRegMoon/>}
-          </Button>
-          <CardWidget />
+          </Nav>
         </Navbar.Collapse>
+        <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
+          {theme === 'dark' ? <FaSun /> : <FaRegMoon />}
+        </Button>
+        <CardWidget />
       </Container>
     </Navbar>
 

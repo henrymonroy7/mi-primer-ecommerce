@@ -6,6 +6,7 @@ const Home = () => {
 
     return (
         <>
+        <p>Lista de tareas: configurar firestore</p>
             <ItemListContainer greeting={greeting}/>
         </>
     )

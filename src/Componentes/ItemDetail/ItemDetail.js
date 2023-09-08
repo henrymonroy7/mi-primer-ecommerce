@@ -1,8 +1,11 @@
 import ItemCount from "../ItemCount/ItemCount"
 import { Card, Carousel, Col, Row } from 'react-bootstrap';
 import { useState } from "react";
+import { useContext } from "react";
+import CartContext from "../../Contexts/CartContext";
 
 const ItemDetail = (product) => {    
+    const { addItem } = useContext(CartContext)
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex) => {
@@ -33,7 +36,7 @@ const ItemDetail = (product) => {
                             <Card.Text className="mb-3"><strong>Precio: ${product.price?.toLocaleString('es-CO')}</strong></Card.Text>
                             <Card.Text className="mb-3" variant='info'>Stock: {product.stock}</Card.Text>
                             <div className="text-left">
-                                <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => console.log('cantidad agregada: ', quantity)} />
+                                <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => addItem(product, quantity)} />
                             </div>
                         </Card.Body>
                     </Col>
