@@ -2,25 +2,36 @@ import { createContext, useState } from "react"
 
 const CartContext = createContext()
 
-export const CartProvider = ({children}) => {
-    const [total, setTotal] = useState(0)
+export const CartProvider = ({ children }) => {
+    const [total, setTotal] = useState(0)    
     const [purchases, setPurchases] = useState([])
 
-    const addItem = (item, quantity) =>  {              
-        let purchase = {
-            item: item,
-            quantity: quantity
-        }        
-        
-        purchases.push(purchase) 
-        setPurchases(purchases)    
+    const addItem = (item, quantity) => {  
+        let ItemExists = purchases.some(purchase => purchase.item.id === item.id)
+        if (ItemExists) {
+            const purchaseToUpdate = purchases.find(purchase => purchase.item.id === item.id)
+            purchaseToUpdate.quantity += quantity
+            setPurchases(purchases)
+        } else {                       
+            setPurchases([...purchases, {item, quantity}])
+        }
         setTotal(total + quantity)
-        // console.log("purchases", purchases)        
-        // console.log("total", total)        
     }
 
+    const removeItem = (indexToRemove, quantity) => {
+        let newPurchases = purchases.filter((p, index) => index !== indexToRemove)
+        setPurchases(newPurchases)
+        setTotal(total - quantity)        
+    }
+
+    const calculateFinalPrice = () => {
+        return purchases.reduce((totalPrice, purch) => {
+            return totalPrice + purch.item.price * purch.quantity;
+        }, 0);
+    };
+
     return (
-        <CartContext.Provider value = {{purchases, total, addItem}}>
+        <CartContext.Provider value={{ purchases, total, addItem, removeItem, calculateFinalPrice }}>
             {children}
         </CartContext.Provider>
     )

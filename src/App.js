@@ -9,6 +9,7 @@ import { CartProvider } from './Contexts/CartContext';
 import Home from './Pages/Home/Home';
 import Footer from './Componentes/Footer/Footer';
 import { Container } from 'react-bootstrap';
+import Cart from './Componentes/Cart/Cart';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting="Nombre categoría" />} />
                 <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+                <Route path='/payment' element={<Cart/>} />
                 <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
               </Routes>
             </Container>

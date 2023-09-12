@@ -26,4 +26,22 @@
   .square-button {
     border-radius: 0 !important; 
   }
+
+  .purchase-item {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    /* margin-bottom: 10px;  */
+  }
   
+  .delete-button {        
+    align-items: center;    
+    margin-left: 5px; 
+    margin-top: 5px;    
+    background: none;
+    border: none; 
+  }
+
+  .delete-icon {
+    font-size: 20px;
+  }

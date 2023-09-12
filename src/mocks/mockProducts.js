@@ -60,11 +60,11 @@ const products = [
         name: 'Rolling Papers',
         price: 5000,
         category: 'papers',
-        img: 'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/18232245/RAW1-4_01-10-23.png', 
+        img: 'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/01001504/RAW1-4_04-28-23.png', 
         images: [
-            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/18232245/RAW1-4_01-10-23.png',
-            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/18232245/RAW1-4_01-10-23.png',
-            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/18232245/RAW1-4_01-10-23.png'
+            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/01001504/RAW1-4_04-28-23.png',
+            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/01001504/RAW1-4_04-28-23.png',
+            'https://rawpaper-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/02/01001504/RAW1-4_04-28-23.png'
         ],
         stock: 100,
         description: 'RAW Classic 1¼ is our original size'
