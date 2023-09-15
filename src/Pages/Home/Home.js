@@ -1,13 +1,14 @@
 import './Home.css';
 import ItemListContainer from '../../Componentes/ItemListContainer/ItemListContainer';
 
-const Home = () => {
-    const greeting = "Bienvenidos a E-Commerce";
+const Home = () => {   
 
     return (
         <>
-        <p>Lista de tareas: configurar firestore</p>
-            <ItemListContainer greeting={greeting}/>
+            <div className='deboCrearla-header'>
+                <h1>Bienvenido a fakE-Commerce</h1>
+            </div>
+            <ItemListContainer />
         </>
     )
 

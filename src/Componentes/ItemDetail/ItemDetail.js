@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import CartContext from "../../Contexts/CartContext";
 
-const ItemDetail = (product) => {    
+const ItemDetail = (product) => {
     const { addItem } = useContext(CartContext)
     const [index, setIndex] = useState(0);
 
@@ -37,11 +37,13 @@ const ItemDetail = (product) => {
                             <Card.Text className="mb-3" variant='info'>Stock: {product.stock}</Card.Text>
                             <div className="text-left">
                                 <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => addItem(product, quantity)} />
+
+                               
                             </div>
                         </Card.Body>
                     </Col>
                 </Row>
-            </Card>
+            </Card >
 
         </>
     )

@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../../mocks/mockCategories';
 import ThemeContext from '../../Contexts/ThemeContext';
 import { Button } from 'react-bootstrap';
-import { FaRegMoon, FaSun } from "react-icons/fa";
+import { FaRegMoon, FaSun, FaUserNinja } from "react-icons/fa";
 
 
 const NavBar = () => {
@@ -38,6 +38,12 @@ const NavBar = () => {
               Home
             </NavLink>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <NavLink to='/' className="dropdown-item">
+                  Todos los productos
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
               {categories?.map((cat, index) => (
                 <NavDropdown.Item key={index} >
                   <NavLink to={`/category${cat.url}`} className="dropdown-item">
@@ -48,6 +54,9 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <Button bg={theme} variant={theme} className="button-navbar" onClick={()=> alert("componente de autenticacion")}>
+          <FaUserNinja/>
+        </Button>
         <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
           {theme === 'dark' ? <FaSun /> : <FaRegMoon />}
         </Button>

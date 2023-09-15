@@ -3,20 +3,23 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect } from "react"
 import { getProducts, getProductsByCategoryId } from "../../mocks/mockProducts"
 import { useParams } from "react-router-dom"
+import { Spinner } from "react-bootstrap"
 // import { useContext } from "react"
 // import ThemeContext from "../../Contexts/ThemeContext"
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
     // const { theme } = useContext(ThemeContext)
+    const [title, setTitle] = useState(null)
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()    
         
-    useEffect(() => {        
-        const myFunction = categoryId ? getProductsByCategoryId : getProducts        
+    useEffect(() => {
+        const myFunction = categoryId ? getProductsByCategoryId : getProducts
+        setTitle(categoryId ? categoryId : "Todos los productos")
 
         myFunction(categoryId)
-            .then(response => {
+            .then(response => {                
                 setProducts(response)
             })
             .catch(error => {
@@ -28,9 +31,9 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     return (
-        loading ? <p>Aguarde...</p> :
-        <div /*className={`bg-${theme}`}*/ style={{ paddingBottom: '20px' }}>
-            <h1>{greeting}</h1>
+        loading ? <Spinner animation="border" variant="primary"/> :
+        <div /*className={`bg-${theme}`}*/ style={{ paddingBottom: '20px'}}>
+            <h5 style={{marginBottom:'20px', textAlign:'left'}}>{title}</h5>
             <ItemList products={products} />
         </div>
     )

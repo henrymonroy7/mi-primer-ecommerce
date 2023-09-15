@@ -8,11 +8,13 @@ const Item = (product) => {
 
     return (
         <Col>
-            <Card style={{ marginBottom: '10px', width: "80%"}}>
+            <Card style={{ marginBottom: '10px', width: "80%" }}>
                 <Card.Img variant="top" src={product.img} style={{ marginBottom: '10px' }} />
-                <Card.Title>{product.name}</Card.Title>
-                <Card.Subtitle>${product.price.toLocaleString('es-CO')}</Card.Subtitle>
                 <Card.Body>
+                    <div style={{marginBottom:'10px'}}>
+                        <Card.Title>{product.name}</Card.Title>
+                        <Card.Subtitle>${product.price.toLocaleString('es-CO')}</Card.Subtitle>
+                    </div>
                     <Card.Text>
                         <Link to={`/category/${product.category}`}>
                             {product.category}
@@ -25,7 +27,6 @@ const Item = (product) => {
             </Card>
         </Col>
     )
-
 }
 
 export default Item
