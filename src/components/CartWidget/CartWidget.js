@@ -1,8 +1,8 @@
 import { Badge, Button, Offcanvas, ListGroup, Figure, Col, Row } from 'react-bootstrap'
 import { FaShoppingCart, FaRunning, FaTimes, FaTrashAlt } from "react-icons/fa";
 import './CartWidget.css';
-import ThemeContext from '../../Contexts/ThemeContext';
-import CartContext from '../../Contexts/CartContext';
+import ThemeContext from '../../contexts/ThemeContext';
+import CartContext from '../../contexts/CartContext';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 

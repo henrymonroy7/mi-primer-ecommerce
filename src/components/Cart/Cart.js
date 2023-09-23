@@ -1,8 +1,8 @@
 import { Table, Figure, Button } from 'react-bootstrap';
 import { FaTrashAlt } from "react-icons/fa";
 import { useContext } from 'react';
-import ThemeContext from '../../Contexts/ThemeContext';
-import CartContext from '../../Contexts/CartContext';
+import ThemeContext from '../../contexts/ThemeContext';
+import CartContext from '../../contexts/CartContext';
 
 const Cart = () => {
     const { theme } = useContext(ThemeContext)
@@ -57,7 +57,7 @@ const Cart = () => {
                 </Row> */}
                 <h5>Total de productos: {total}</h5>
                 <h5 className='text-primary'>Total a pagar: ${calculateFinalPrice().toLocaleString('es-CO')}</h5>
-                <Button variant="success" size="lg" onClick={() => alert("Hemos desocupado tu tarjeta de crédito!")}>
+                <Button variant="success" size="lg" onClick={() => alert("yaper")}>
                     Pagar!
                 </Button>
             </div>

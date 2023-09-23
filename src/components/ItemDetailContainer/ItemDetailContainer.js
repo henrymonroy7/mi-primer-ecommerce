@@ -12,8 +12,8 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getProductById(itemId)
-            .then(response => {
-                setProduct(response)
+            .then(snapshot => {
+                setProduct({ id: snapshot.id, ...snapshot.data()})
             })
             .catch(error => {
                 console.log("Ha ocurrido un error", error)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import ThemeContext from '../../Contexts/ThemeContext';
+import ThemeContext from '../../contexts/ThemeContext';
 import { useContext } from 'react';
 
 const Footer = () => {
@@ -12,8 +12,8 @@ const Footer = () => {
         <Container style={{padding:'10px'}}>
         <Row>
           <Col md={6}>
-            <h4>Suscríbete a nuestro boletín</h4>
-            <p>Recibe las últimas novedades y ofertas especiales.</p>
+            <h4>No duerma y suscríbase a nuestro boletín</h4>
+            <p>Reciba las últimas novedades y ofertas especiales</p>
             <Form>
               <Form.Group controlId="name" style={{margin:'10px'}}>
                 <Form.Control type="text" placeholder="Tu nombre" />                
@@ -27,7 +27,7 @@ const Footer = () => {
             </Form>
           </Col>
           <Col md={3}>
-            <h4>Síguenos en redes sociales</h4>
+            <h4>Qué espera?... Síganos en redes!</h4>
             <div className="d-flex justify-content-between">
               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className={theme === 'dark' ? 'text-light' : 'text-dark'}>
                 <FaFacebook size={30} />

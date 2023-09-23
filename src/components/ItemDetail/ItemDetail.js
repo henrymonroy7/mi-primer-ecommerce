@@ -2,7 +2,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import { Card, Carousel, Col, Row } from 'react-bootstrap';
 import { useState } from "react";
 import { useContext } from "react";
-import CartContext from "../../Contexts/CartContext";
+import CartContext from "../../contexts/CartContext";
 
 const ItemDetail = (product) => {
     const { addItem } = useContext(CartContext)

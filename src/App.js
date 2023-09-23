@@ -1,15 +1,15 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './Componentes/NavBar/NavBar';
-import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './Componentes/ItemDetailContainer/ItemDetailContainer';
-import { ThemeProvider } from './Contexts/ThemeContext';
-import { CartProvider } from './Contexts/CartContext';
-import Home from './Pages/Home/Home';
-import Footer from './Componentes/Footer/Footer';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Home from './components/Home/Home';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { CartProvider } from './contexts/CartContext';
+import Footer from './components/Footer/Footer';
 import { Container } from 'react-bootstrap';
-import Cart from './Componentes/Cart/Cart';
+import Cart from './components/Cart/Cart';
 
 function App() {
 

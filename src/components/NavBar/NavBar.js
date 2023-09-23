@@ -6,7 +6,7 @@ import CardWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../../mocks/mockCategories';
-import ThemeContext from '../../Contexts/ThemeContext';
+import ThemeContext from '../../contexts/ThemeContext';
 import { Button } from 'react-bootstrap';
 import { FaRegMoon, FaSun, FaUserNinja } from "react-icons/fa";
 
@@ -17,12 +17,14 @@ const NavBar = () => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    getCategories().then(response => {
-      setCategories(response)
+    getCategories().then(snapshot => {
+      setCategories(snapshot.docs.map(doc => {
+        return {id: doc.id, ...doc.data()}
+      }))
     }).catch(error => {
       console.log("Error", error)
     })
-  }, [categories])
+  }, [])
 
 
   return (
@@ -44,9 +46,9 @@ const NavBar = () => {
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              {categories?.map((cat, index) => (
-                <NavDropdown.Item key={index} >
-                  <NavLink to={`/category${cat.url}`} className="dropdown-item">
+              {categories?.map(cat => (
+                <NavDropdown.Item key={cat.id} >
+                  <NavLink to={`/category/${cat.url}`} className="dropdown-item">
                     {cat.name}
                   </NavLink>
                 </NavDropdown.Item>
