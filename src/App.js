@@ -7,7 +7,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Home from './components/Home/Home';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { CartProvider } from './contexts/CartContext';
-import Footer from './components/Footer/Footer';
 import { Container } from 'react-bootstrap';
 import Cart from './components/Cart/Cart';
 
@@ -24,12 +23,12 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/category/:categoryId' element={<ItemListContainer/>} />
                 <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-                <Route path='/payment' element={<Cart/>} />
+                <Route path='/payment' element={<Cart/>} />                
                 <Route path='*' element={<h4>PÁGINA NO ENCONTRADA</h4>} />
               </Routes>
             </Container>
           </div>
-          <Footer />
+          
         </BrowserRouter>
       </CartProvider>
     </ThemeProvider >

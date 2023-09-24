@@ -5,9 +5,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import CardWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { getCategories } from '../../mocks/mockCategories';
+import { getCategories } from "../../services/Category"
 import ThemeContext from '../../contexts/ThemeContext';
-import { Button } from 'react-bootstrap';
+import { Badge, Button } from 'react-bootstrap';
 import { FaRegMoon, FaSun, FaUserNinja } from "react-icons/fa";
 
 
@@ -21,8 +21,6 @@ const NavBar = () => {
       setCategories(snapshot.docs.map(doc => {
         return {id: doc.id, ...doc.data()}
       }))
-    }).catch(error => {
-      console.log("Error", error)
     })
   }, [])
 
@@ -31,7 +29,7 @@ const NavBar = () => {
     <Navbar bg={theme} variant={theme} expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          E-Commerce
+        4*20 <Badge bg="success" >Store</Badge>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -56,9 +54,9 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Button bg={theme} variant={theme} className="button-navbar" onClick={()=> alert("componente de autenticacion")}>
+        {/* <Button bg={theme} variant={theme} className="button-navbar" onClick={()=> alert("componente de autenticacion")}>
           <FaUserNinja/>
-        </Button>
+        </Button> */}
         <Button bg={theme} variant={theme} className="button-navbar" onClick={toggleTheme}>
           {theme === 'dark' ? <FaSun /> : <FaRegMoon />}
         </Button>

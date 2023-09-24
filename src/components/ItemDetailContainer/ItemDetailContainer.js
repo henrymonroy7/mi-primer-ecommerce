@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getProductById } from "../../mocks/mockProducts";
+import { getProductById } from "../../services/Product";
 import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
@@ -13,11 +13,9 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getProductById(itemId)
             .then(snapshot => {
-                setProduct({ id: snapshot.id, ...snapshot.data()})
+                setProduct({ id: snapshot.id, ...snapshot.data() })
             })
-            .catch(error => {
-                console.log("Ha ocurrido un error", error)
-            }).finally(() => {
+            .finally(() => {
                 setLoading(false)
             })
     }, [itemId])
@@ -28,8 +26,6 @@ const ItemDetailContainer = () => {
                 <h3>Detalles del Producto</h3>
                 <ItemDetail {...product}></ItemDetail>
             </div>)
-
-
     )
 
 }

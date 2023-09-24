@@ -9,7 +9,7 @@ const Item = (product) => {
     return (
         <Col>
             <Card style={{ marginBottom: '10px', width: "80%" }}>
-                <Card.Img variant="top" src={product.img} style={{ marginBottom: '10px' }} />
+                <Card.Img variant="top" src={product.img} style={{ marginBottom: '10px'}} />
                 <Card.Body>
                     <div style={{marginBottom:'10px'}}>
                         <Card.Title>{product.name}</Card.Title>

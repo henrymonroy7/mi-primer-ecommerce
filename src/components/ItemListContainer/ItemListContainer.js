@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import { useEffect } from "react"
-import { getProducts, getProductsByCategoryId } from "../../mocks/mockProducts"
+import { getProducts, getProductsByCategoryId } from "../../services/Product"
 import { useParams } from "react-router-dom"
 import { Spinner } from "react-bootstrap"
 // import { useContext } from "react"
@@ -24,9 +24,7 @@ const ItemListContainer = () => {
                     return { id: doc.id, ...doc.data() }
                 }))
             })
-            .catch(error => {
-                console.log("Ha ocurrido un error", error)
-            }).finally(() => {                           
+            .finally(() => {                           
                 setLoading(false)
             })
 
