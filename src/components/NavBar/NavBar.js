@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { getCategories } from "../../services/Category"
 import ThemeContext from '../../contexts/ThemeContext';
 import { Badge, Button } from 'react-bootstrap';
-import { FaRegMoon, FaSun, FaUserNinja } from "react-icons/fa";
+import { FaRegMoon, FaSun } from "react-icons/fa";
 
 
 const NavBar = () => {
